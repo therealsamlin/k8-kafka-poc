@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: billing-service
-        image: australia-southeast1-docker.pkg.dev/build-dev-au-se1-6f06/docker-reg-au-se1-dev/billing-service:latest
+        image: $YOUR_REGISTRY/billing-service:latest
         ports:
         - containerPort: 3000
         env:

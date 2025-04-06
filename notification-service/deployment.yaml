@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: notification-service
-        image: australia-southeast1-docker.pkg.dev/build-dev-au-se1-6f06/docker-reg-au-se1-dev/notification-service:latest
+        image: $YOUR_REGISTRY/notification-service:latest
         ports:
         - containerPort: 3000
         env:
