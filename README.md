@@ -1,4 +1,4 @@
-# Kafka Microservices on Kubernetes - Proof of Concept
+# Order System with Kafka on Kubernetes - Proof of Concept
 
 This project demonstrates a microservices architecture using Apache Kafka for asynchronous communication between services. The application consists of three microservices (Order, Billing, and Notification) that communicate through Kafka topics.
 
