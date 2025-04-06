@@ -2,9 +2,18 @@
 
 This project demonstrates a microservices architecture using Apache Kafka for asynchronous communication between services. The application consists of three microservices (Order, Billing, and Notification) that communicate through Kafka topics.
 
+## What is Kafka?
+
+- Apache Kafka is a distributed event streaming platform designed for high-throughput, fault-tolerant, real-time data streaming
+- Kafka functions as a persistent, distributed message broker with publish/subscribe capabilities
+- Core components include: producers, consumers, topics, partitions, brokers, and consumer groups
+  - E.g - ideally you want to match partition number to consumer group number (e.g. 3 to 3) for maximum throughput
+- Originally developed by LinkedIn, now maintained as an open-source Apache project
+
+
 ## Architecture
 
-![Architecture Diagram](https://placeholder-for-architecture-diagram.png)
+![Architecture Diagram](images/kafka-diagram.png)
 
 The system consists of the following components:
 
@@ -248,4 +257,3 @@ Ideas for extending this proof of concept:
 - [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
 - [Confluent Kafka on Kubernetes](https://docs.confluent.io/operator/current/overview.html)
 - [KafkaJS Documentation](https://kafka.js.org/docs/getting-started)
-- [Kubernetes Documentation](https://kubernetes.io/docs/home/)
