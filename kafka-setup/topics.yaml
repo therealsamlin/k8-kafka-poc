@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kafka-topics-creator
+  namespace: kafka-poc
+spec:
+  template:
+    spec:
+      containers:
+      - name: kafka-topics-creator
+        image: confluentinc/cp-kafka:7.3.0
+        command:
+        - /bin/sh
+        - -c
+        - |
+          # Wait for Kafka to be ready
+          sleep 30
+          
+          # Create topics with appropriate partitions and replication factor
+          kafka-topics --create --if-not-exists --bootstrap-server kafka:9092 --topic order-created --partitions 3 --replication-factor 1
+          kafka-topics --create --if-not-exists --bootstrap-server kafka:9092 --topic payment-requests --partitions 3 --replication-factor 1
+          kafka-topics --create --if-not-exists --bootstrap-server kafka:9092 --topic notification-events --partitions 3 --replication-factor 1
+          
+          # List topics to verify
+          kafka-topics --list --bootstrap-server kafka:9092
+      restartPolicy: OnFailure
+  backoffLimit: 5

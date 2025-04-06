@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-test-manual
+  namespace: kafka-poc
+spec:
+  template:
+    spec:
+      containers:
+      - name: k6
+        image: australia-southeast1-docker.pkg.dev/build-dev-au-se1-6f06/docker-reg-au-se1-dev/k6-load-test:latest
+        env:
+        - name: ORDER_SERVICE_URL
+          value: "http://IP-ADDRESS-HERE/api/orders"
+      restartPolicy: Never
+  backoffLimit: 1
